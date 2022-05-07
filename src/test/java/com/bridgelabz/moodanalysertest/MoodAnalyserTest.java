@@ -1,6 +1,7 @@
 package com.bridgelabz.moodanalysertest;
 
 import com.bridegelabz.moodanalyser.MoodAnalyser;
+import com.bridegelabz.moodanalyser.MoodAnalyserException;
 import org.junit.Test;
 import org.junit.Assert;
 
@@ -13,24 +14,30 @@ public class MoodAnalyserTest {
     // -----------------Test for Sad-----------
     @Test
     public void givenMessageWhenSadShouldBeReturnSad() {
-        // create object
-        MoodAnalyser moodeAnalyser = new MoodAnalyser();
-        // pass Sad message
-        String message = "I am in Sad Mood";
+        // create object and set message
+        MoodAnalyser moodeAnalyser = new MoodAnalyser("I am in Sad mood");
         String expectedValue = "SAD";
-        String mood = moodeAnalyser.analyseMood(message);
-        Assert.assertEquals(expectedValue, mood);
+        String mood;
+        try {
+            mood = moodeAnalyser.analyseMood();
+            Assert.assertEquals(expectedValue, mood);
+        } catch (MoodAnalyserException e) {
+            e.printStackTrace();
+        }
     }
 
     // ---------------Test for Happy---------------
     @Test
     public void givenMessageWhenHappyShouldBeReturnHappy() {
-        // create object
-        MoodAnalyser moodeAnalyser = new MoodAnalyser();
-        // pass Sad message
-        String message = "I am in Happy Mood";
+        // create object and ser message
+        MoodAnalyser moodeAnalyser = new MoodAnalyser("I am Happy");
         String expectedValue = "HAPPY";
-        String mood = moodeAnalyser.analyseMood(message);
-        Assert.assertEquals(expectedValue, mood);
+        String mood;
+        try {
+            mood = moodeAnalyser.analyseMood();
+            Assert.assertEquals(expectedValue, mood);
+        } catch (MoodAnalyserException e) {
+            e.printStackTrace();
+        }
     }
 }

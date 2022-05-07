@@ -20,18 +20,19 @@ public class MoodAnalyser {
     }
 
     // Check mood wheather Happy or Sad
-    public String analyseMood(String message) {
-        
-        try {
-            if (message.equalsIgnoreCase("I am in sad mood"))
-                return "SAD";
-            else
-                return "HAPPY";
+    public String analyseMood() throws MoodAnalyserException {
 
-        } catch (NullPointerException exception) {
-            return "Happy";
+        try {
+            if (message.length() == 0) {
+                throw new MoodAnalyserException("Please Enter Proper Mood", MoodAnalyserException.ExceptionType.ENTERED_EMPTY);
+            } else {
+                if (message.equalsIgnoreCase("I am in sad mood"))
+                    return "SAD";
+                else
+                    return "HAPPY";
+            }
+        } catch (NullPointerException e) {
+            throw new MoodAnalyserException("Please Enetr Proper Mood", MoodAnalyserException.ExceptionType.ENTERED_NULL);
         }
     }
-
-
 }

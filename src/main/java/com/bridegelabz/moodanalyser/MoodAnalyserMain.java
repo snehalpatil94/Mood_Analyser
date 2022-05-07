@@ -15,9 +15,9 @@ public class MoodAnalyserMain {
         MoodAnalyser moodAnalyser = new MoodAnalyser();
 
         // Pass Happy message
-        System.out.println(moodAnalyser.analyseMood("My name is Snehal"));
+       // System.out.println(moodAnalyser.analyseMood("My name is Snehal"));
 
         // Pass Sad message
-        System.out.println(moodAnalyser.analyseMood("I am in Sad Mood"));
+        //System.out.println(moodAnalyser.analyseMood("I am in Sad Mood"));
     }
 }
